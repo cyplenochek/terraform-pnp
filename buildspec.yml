@@ -20,7 +20,5 @@ phases:
   post_build:
     commands:
       - docker push $REPOSITORY_URI:$TAG
-
-
 artifacts:
   files: build.json
