@@ -1,5 +1,4 @@
 FROM golang:1.11.1 as builder
-
 RUN mkdir -p /go/src/github.com/eks-workshop-sample-api-service-go
 WORKDIR /go/src/github.com/eks-workshop-sample-api-service-go
 RUN useradd -u 10001 app
