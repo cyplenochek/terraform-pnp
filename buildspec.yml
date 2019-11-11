@@ -12,18 +12,16 @@ phases:
   pre_build:
     commands:
       - ls
-      - echo ${AWS_DEFAULT_REGION}
       - aws s3 ls
-      - terraform init
-      - terraform fmt
+      - echo '0. initiate terraform'
+      - terraform init -no-color
+      - echo '1. executing terraform fmt'
+      - terraform fmt -no-color
   build:
     commands:
-      - echo '0. initiate terraform'
-      - terraform init
-      - echo '1. executing terraform fmt'
-      - terraform fmt
+
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
-      - terraform plan -var-file="starter.tfvars"
+      - terraform plan -var-file="starter.tfvars -no-color"
 
 
   post_build:
