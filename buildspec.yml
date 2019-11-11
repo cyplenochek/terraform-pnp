@@ -22,7 +22,7 @@ phases:
 
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
       - if [ ${STAGE} == "Build" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
-      - if [ ${STAGE} == "Deploy" ]; then  terraform plan -var-file="starter.tfvars" -no-color" ; fi
+      - if [ ${STAGE} == "Deploy" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
       - if [ ${STAGE} == "Deploy" ]; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
 
 
