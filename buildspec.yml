@@ -15,7 +15,6 @@ phases:
       - env
       - ls
       - echo ${AWS_DEFAULT_REGION} 
-      - echo ${CREDENTIALS}
       - aws s3 ls
       - terraform init
       - terraform fmt
