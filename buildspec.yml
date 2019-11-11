@@ -8,7 +8,7 @@ phases:
       - wget -q https://releases.hashicorp.com/terraform/0.11.6/terraform_0.11.6_linux_amd64.zip
       - unzip terraform_0.11.6_linux_amd64.zip
       - mv terraform /usr/local/bin/terraform
-      - apt-get update && apt-get -y install jq python3-pip python3-dev && pip3 install --upgrade awscli
+      - uname -a
   pre_build:
     commands:
       - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
