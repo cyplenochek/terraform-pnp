@@ -11,10 +11,8 @@ phases:
       - uname -a
   pre_build:
     commands:
-      - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-      - env
       - ls
-      - echo ${AWS_DEFAULT_REGION} 
+      - echo ${AWS_DEFAULT_REGION}
       - aws s3 ls
       - terraform init
       - terraform fmt
@@ -26,9 +24,9 @@ phases:
       - terraform fmt
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
       - terraform plan -var-file="starter.tfvars"
-      - echo '3. gonna make the Magic'
-      - echo "yes" | terraform apply -var-file="starter.tfvars"
+
 
   post_build:
     commands:
-      - docker images
+      - echo '3. gonna make the Magic'
+
