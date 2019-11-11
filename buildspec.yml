@@ -23,5 +23,3 @@ phases:
   post_build:
     commands:
       - docker images
-artifacts:
-  files: build.json

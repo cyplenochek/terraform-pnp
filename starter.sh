@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export TF_LOG=DEBUG
+#export TF_LOG=DEBUG
 echo '0. initiate terraform'
 terraform init
 echo '1. executing terraform fmt'
