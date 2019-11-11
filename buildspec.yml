@@ -24,8 +24,8 @@ phases:
       - echo '1. executing terraform fmt'
       - terraform fmt
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
-      - terraform plan -var-file="starter.tfvars" 
-      - echo '3. gonna make the magic'
+      - terraform plan -var-file="starter.tfvars"
+      - echo '3. gonna make the Magic'
       - echo "yes" | terraform apply -var-file="starter.tfvars"
 
   post_build:
