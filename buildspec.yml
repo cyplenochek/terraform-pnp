@@ -19,11 +19,11 @@ phases:
     commands:
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
       - |
-          if [ ${STAGE} == "TEST" ] ; then
+          if [[ "${STAGE}" == "TEST" ]] ; then
             echo "${STAGE}"
           fi
-      - if [ ${STAGE} == "DEPLOY" ] ; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
-      - if [ ${STAGE} == "DEPLOY" ] ; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
+      - if [[ "${STAGE}" == "DEPLOY" ]] ; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
+      - if [[ "${STAGE}" == "DEPLOY" ]] ; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
 
 
   post_build:
