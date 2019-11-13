@@ -20,15 +20,14 @@ phases:
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
       - |
         if expr "$STAGE" : "TEST" >/dev/null; then
-            echo 'expr'
+            echo 'just testing dont worry'
+            terraform plan -var-file="starter.tfvars" -no-color
         fi
       - |
-        if [[ "$STAGE" == "TEST" ]] ; then
-            echo "$STAGE"
+        if expr "$STAGE" : "DEPLOY" >/dev/null; ; then
+            echo 'going to run terraform plan and apply, so time to be worried'
+            echo "yes" | terraform apply -var-file="starter.tfvars" -no-color
         fi
-      - if [[ "$STAGE" == "DEPLOY" ]] ; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
-      - if [[ "$STAGE" == "DEPLOY" ]] ; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
-
 
   post_build:
     commands:
