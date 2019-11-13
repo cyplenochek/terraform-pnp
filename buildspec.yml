@@ -11,8 +11,6 @@ phases:
       - uname -a
   pre_build:
     commands:
-      - ls
-      - aws s3 ls
       - echo '0. initiate terraform'
       - terraform init -no-color
       - echo '1. executing terraform fmt'
@@ -21,9 +19,9 @@ phases:
     commands:
 
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
-      - if [ ${STAGE} == "Build" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
-      - if [ ${STAGE} == "Deploy" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
-      - if [ ${STAGE} == "Deploy" ]; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
+      - if [ ${STAGE} == "TEST" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
+      - if [ ${STAGE} == "DEPLOY" ]; then  terraform plan -var-file="starter.tfvars" -no-color ; fi
+      - if [ ${STAGE} == "DEPLOY" ]; then  echo "yes" | terraform apply -var-file="starter.tfvars" -no-color ; fi
 
 
   post_build:
