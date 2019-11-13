@@ -24,7 +24,7 @@ phases:
             terraform plan -var-file="starter.tfvars" -no-color
         fi
       - |
-        if expr "$STAGE" : "DEPLOY" >/dev/null; ; then
+        if expr "$STAGE" : "DEPLOY" >/dev/null; then
             echo 'going to run terraform plan and apply, so time to be worried'
             echo "yes" | terraform apply -var-file="starter.tfvars" -no-color
         fi
