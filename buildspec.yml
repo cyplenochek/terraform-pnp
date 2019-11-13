@@ -19,6 +19,10 @@ phases:
     commands:
       - echo '2. executing terraform plan -var-file="starter.tfvars" '
       - |
+        if expr "$STAGE" : "TEST" >/dev/null; then
+            echo 'expr'
+        fi
+      - |
         if [[ "$STAGE" == "TEST" ]] ; then
             echo "$STAGE"
         fi
