@@ -29,9 +29,3 @@ phases:
             terraform plan -var-file="starter.tfvars" -no-color
             echo "yes" | terraform apply -var-file="starter.tfvars" -no-color
         fi
-
-  post_build:
-    commands:
-      - echo '3. gonna make the Magic'
-      - echo ${STAGE}
-
